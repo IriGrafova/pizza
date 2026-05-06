@@ -1,0 +1,62 @@
+<div class="order">
+  <div class="terms">
+    <div class="header">
+      <h2 class="title">
+        Хватит думать!
+        <span class="title color">Доставим заказ за 30 минут!</span>
+      </h2>
+    </div>
+
+    <p class="description">
+      Мы гарантированно доставим вашу пиццу за 30 минут с момента оформления
+      заказа. Если мы опоздаем даже на 1 минуту - вы получаете весь заказ
+      бесплатно и ваучер на скидку на следующий заказ. Мы гордимся нашим
+      сервисом и сделаем всё, чтобы наш клиент был доволен и не остался
+      голодный!
+    </p>
+  </div>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="Ваше имя"
+      class="input"
+      required
+      formControlName="name"
+      (keydown)="preventDot($event)"
+    />
+    <input
+      type="text"
+      placeholder="Адрес доставки"
+      class="input"
+      required
+      formControlName="address"
+    />
+    <input
+      type="tel"
+      placeholder="Телефон"
+      class="input"
+      required
+      formControlName="phone"
+    />
+
+    <button class="btn-order" type="submit" [disabled]="!form.valid">
+      Оформить заказ
+    </button>
+
+    @if (form.invalid && form.touched) {
+      <p class="error">Заполните все поля</p>
+    }
+  </form>
+
+  <div class="image-pizza"></div>
+</div>
+
+@if (showPopup) {
+  <div class="popup-overlay">
+    <div class="popup">
+      <div class="popup-icon">✅</div>
+      <p>Спасибо за заказ</p>
+    </div>
+  </div>
+}

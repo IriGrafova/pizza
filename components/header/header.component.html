@@ -1,0 +1,17 @@
+<div class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="images/logo.png" alt="logo" />
+      <h1 class="title">PIZZA<br>CHEFF</h1>
+    </div>
+    <div class="nav">
+      <ul>
+        @for (item of navItems; track $index) {
+          <li>
+            <a href="#">{{ item }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
