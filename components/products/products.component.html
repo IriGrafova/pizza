@@ -1,0 +1,9 @@
+  <div class="products">
+    <h2 class="title">Выберите свою любимую пиццу</h2>
+    
+      <div class="products-grid">
+        @for (product of products; track product.id) {
+          <app-card [product]="product"></app-card>
+        }
+      </div>
+  </div>
